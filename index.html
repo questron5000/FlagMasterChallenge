@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flag Master Challenge</title>
+    <title>Flag Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Flag Master Challenge</h1>
-        <div id="flag-game" class="flag-game">
-            <img id="flag" class="flag-image" src="" alt="Country flag">
-            <div id="options-container" class="options-container"></div>
-            <div id="timer" class="timer">10</div>
-            <button id="lock-in">Lock it in</button>
-        </div>
+    <div id="flag-game">
+        <!-- Display the score -->
+        <div id="score">Score: 0</div>
+
+        <!-- Display the flag image -->
+        <img id="flag" src="" alt="Flag">
+
+        <!-- Display the options container -->
+        <div id="options-container"></div>
+
+        <!-- Display the countdown timer -->
+        <div id="timer">10</div>
+
+        <!-- Display the "Lock it in" button -->
+        <button id="lock-in">Lock it in</button>
     </div>
 
+    <!-- Include the countries.js and flagGame.js scripts -->
     <script src="countries.js"></script>
     <script src="flagGame.js"></script>
 </body>

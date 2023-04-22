@@ -9,6 +9,7 @@ let selectedOption = null;
 let countdown = null;
 let timer = 10;
 let questionCount = 0;
+let correctCount = 0; // Keep track of the number of correct answers
 const maxQuestions = 10;
 
 function startGame() {
@@ -50,7 +51,11 @@ function lockInAnswer() {
     if (!selectedOption) return;
 
     const isCorrect = currentQuestion.correctAnswer.name === selectedOption.textContent;
+    if (isCorrect) {
+        correctCount++; // Increment the correct answer count if the answer is correct
+    }
     showAnswerFeedback(isCorrect);
+    updateScore(); // Update the score display
     setTimeout(() => {
         generateQuestion();
         startCountdown();
@@ -127,7 +132,8 @@ function generateOptions(correctAnswer) {
 }
 
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0
+        i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
@@ -146,15 +152,24 @@ function endGame() {
     const restartButton = document.createElement('button');
     restartButton.textContent = 'Play Again';
     restartButton.addEventListener('click', () => {
-        // Reset the question count and start the game again
+        // Reset the question count and correct answer count, and start the game again
         questionCount = 0;
+        correctCount = 0;
+        updateScore(); // Initialize the score display
         startGame();
     });
     flagGame.appendChild(restartButton);
+}
+
+function updateScore() {
+    // Update the score display element with the current correct answer count
+    const scoreElement = document.getElementById('score');
+    scoreElement.textContent = `Score: ${correctCount}`;
 }
 
 // Add an event listener to the "Lock it in" button
 lockInButton.addEventListener('click', lockInAnswer);
 
 // Start the game when the page loads
+updateScore(); // Initialize the score display
 startGame();
