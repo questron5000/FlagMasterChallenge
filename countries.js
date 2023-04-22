@@ -234,8 +234,8 @@
     {
         name: "Fiji",
         flag: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Fiji.svg"
-    }
-      {
+    },
+    {
         name: "Finland",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/1280px-Flag_of_Finland.svg.png"
     },
@@ -298,8 +298,8 @@
     {
         name: "Hungary",
         flag: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg"
-    }
-      {
+    },
+    {
         name: "Iceland",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
     },
@@ -362,8 +362,8 @@
     {
         name: "Kuwait",
         flag: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg"
-    }
-      {
+    },
+    {
         name: "Kyrgyzstan",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/1280px-Flag_of_Kyrgyzstan.svg.png"
     },
@@ -426,8 +426,8 @@
     {
         name: "Malta",
         flag: "https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg"
-    }
-      {
+    },
+    {
         name: "Marshall Islands",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flag_of_the_Marshall_Islands.svg/1280px-Flag_of_the_Marshall_Islands.svg.png"
     },
@@ -486,8 +486,8 @@
     {
         name: "Nepal",
         flag: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg"
-    }
-      {
+    },
+    {
         name: "Netherlands",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1280px-Flag_of_the_Netherlands.svg.png"
     },
@@ -550,8 +550,8 @@
     {
         name: "Philippines",
         flag: "https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg"
-    }
-      {
+    },
+    {
         name: "Poland",
         flag: "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/1280px-Flag_of_Poland.svg.png"
     },
