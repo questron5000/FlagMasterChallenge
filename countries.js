@@ -57,7 +57,7 @@
     },
     {
         "name": "Barbados",
-        "flag": "https://upload.wikimedia.org/wikipedia
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg"
     },
     {
         "name": "Belarus",
