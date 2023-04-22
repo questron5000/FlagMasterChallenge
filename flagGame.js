@@ -1,13 +1,15 @@
-﻿
-const flagGame = document.getElementById('flag-game');
+﻿const flagGame = document.getElementById('flag-game');
 const flag = document.getElementById('flag');
 const optionsContainer = document.getElementById('options-container');
-const timer = document.getElementById('timer');
+const timerElement = document.getElementById('timer');
 const lockInButton = document.getElementById('lock-in');
 
 let currentQuestion = null;
 let selectedOption = null;
 let countdown = null;
+let timer = 10;
+let questionCount = 0;
+const maxQuestions = 10;
 
 function startGame() {
     generateQuestion();
@@ -15,6 +17,11 @@ function startGame() {
 }
 
 function generateQuestion() {
+    if (questionCount >= maxQuestions) {
+        endGame();
+        return;
+    }
+
     currentQuestion = getRandomFlagQuestion();
     flag.src = currentQuestion.flag;
     optionsContainer.innerHTML = '';
@@ -26,6 +33,8 @@ function generateQuestion() {
         optionElement.addEventListener('click', () => selectOption(option, optionElement));
         optionsContainer.appendChild(optionElement);
     });
+
+    questionCount++;
 }
 
 function selectOption(option, optionElement) {
@@ -73,13 +82,13 @@ function showAnswerFeedback(isCorrect) {
 }
 
 function startCountdown() {
-    let timeRemaining = 10;
-    timer.textContent = timeRemaining;
+    timer = 10;
+    timerElement.textContent = timer;
     countdown = setInterval(() => {
-        timeRemaining--;
-        timer.textContent = timeRemaining;
+        timer--;
+        timerElement.textContent = timer;
 
-        if (timeRemaining <= 0) {
+        if (timer <= 0) {
             stopCountdown();
             showAnswerFeedback(false);
             setTimeout(() => {
@@ -126,5 +135,26 @@ function shuffleArray(array) {
     return array;
 }
 
+function endGame() {
+    // Stop the countdown timer
+    stopCountdown();
+
+    // Display end game summary or message here
+    flagGame.innerHTML = '<h2>Game Over!</h2><p>Thanks for playing!</p>';
+
+    // Optionally, you can add a button to restart the game
+    const restartButton = document.createElement('button');
+    restartButton.textContent = 'Play Again';
+    restartButton.addEventListener('click', () => {
+        // Reset the question count and start the game again
+        questionCount = 0;
+        startGame();
+    });
+    flagGame.appendChild(restartButton);
+}
+
+// Add an event listener to the "Lock it in" button
 lockInButton.addEventListener('click', lockInAnswer);
+
+// Start the game when the page loads
 startGame();

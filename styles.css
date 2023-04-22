@@ -1,156 +1,43 @@
-﻿/* General styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-h1 {
+﻿.container {
     text-align: center;
-    font-size: 36px;
-    color: #333;
 }
 
-button {
-    background-color: #fdd835;
-    color: #333;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    padding: 8px 16px;
-    transition: background-color 0.3s;
-}
-
-    button:hover {
-        background-color: #fbc02d;
-    }
-
-    button:active {
-        background-color: #f9a825;
-    }
-
-    button:focus {
-        outline: none;
-    }
-
-/* Flag game specific styling */
 .flag-game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 0;
+    margin-top: 20px;
 }
 
 .flag-image {
-    width: 320px;
-    height: 200px;
-    object-fit: cover;
-    border: 1px solid #ccc;
+    width: 200px;
+    height: auto;
 }
 
 .options-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
 .option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 40px;
-    margin: 8px;
-    padding: 8px 16px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    transition: background-color 0.3s;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
 }
 
-    .option:hover {
-        background-color: #fdd835;
-        cursor: pointer;
-    }
-
-    .option.correct {
-        background-color: #4caf50;
-    }
-
-    .option.wrong {
-        background-color: #f44336;
+    .option.selected {
+        background-color: #d0d0d0;
     }
 
 .timer {
+    margin-top: 20px;
     font-size: 24px;
-    margin-top: 16px;
+    font-weight: bold;
 }
 
-/* Animations */
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    50% {
-        transform: translateX(0);
-    }
-
-    75% {
-        transform: translateX(5px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.flag-game.wrong .flag-image {
-    animation: shake 0.5s 2;
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.flag-game.correct .flag-image::before {
-    content: '✔';
-    font-size: 48px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #4caf50;
-    animation: fadeInOut 1s;
-}
-
-.flag-game.wrong .flag-image::before {
-    content: '✖';
-    font-size: 48px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #f44336;
-    animation: fadeInOut 1s;
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
