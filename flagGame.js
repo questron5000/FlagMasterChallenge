@@ -136,6 +136,31 @@ function shuffleArray(array) {
     return array;
 }
 
+let countdown = null; // Declare the countdown variable at the top of the script
+
+function startCountdown() {
+    const timerElement = document.getElementById('timer');
+    let timer = 10;
+    timerElement.textContent = timer;
+    countdown = setInterval(() => {
+        timer--;
+        timerElement.textContent = timer;
+
+        if (timer <= 0) {
+            stopCountdown();
+            showAnswerFeedback(false);
+            setTimeout(() => {
+                generateQuestion();
+                startCountdown();
+            }, 2000);
+        }
+    }, 1000);
+}
+
+function stopCountdown() {
+    clearInterval(countdown);
+}
+
 function endGame() {
     // Stop the countdown timer
     stopCountdown();
