@@ -104,10 +104,6 @@ function startCountdown() {
     }, 1000);
 }
 
-function stopCountdown() {
-    clearInterval(countdown);
-}
-
 function getRandomFlagQuestion() {
     const correctAnswer = getRandomCountry();
     const options = generateOptions(correctAnswer);
@@ -136,6 +132,7 @@ function shuffleArray(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+
     return array;
 }
 
@@ -150,24 +147,15 @@ function endGame() {
     const restartButton = document.createElement('button');
     restartButton.textContent = 'Play Again';
     restartButton.addEventListener('click', () => {
-        // Reset the question count and correct answer count, and start the game again
+        // Reset the question count and start the game again
         questionCount = 0;
-        correctCount = 0;
-        updateScore(); // Initialize the score display
         startGame();
     });
     flagGame.appendChild(restartButton);
-}
-
-function updateScore() {
-    // Update the score display element with the current correct answer count
-    const scoreElement = document.getElementById('score');
-    scoreElement.textContent = `Score: ${correctCount}`;
 }
 
 // Add an event listener to the "Lock it in" button
 lockInButton.addEventListener('click', lockInAnswer);
 
 // Start the game when the page loads
-updateScore(); // Initialize the score display
 startGame();
