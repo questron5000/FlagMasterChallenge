@@ -3,13 +3,14 @@ const flag = document.getElementById('flag');
 const optionsContainer = document.getElementById('options-container');
 const timerElement = document.getElementById('timer');
 const lockInButton = document.getElementById('lock-in');
+const scoreElement = document.getElementById('score');
 
 let currentQuestion = null;
 let selectedOption = null;
 let countdown = null;
 let timer = 10;
 let questionCount = 0;
-let correctCount = 0; // Keep track of the number of correct answers
+let correctCount = 0;
 const maxQuestions = 10;
 
 function startGame() {
@@ -51,11 +52,7 @@ function lockInAnswer() {
     if (!selectedOption) return;
 
     const isCorrect = currentQuestion.correctAnswer.name === selectedOption.textContent;
-    if (isCorrect) {
-        correctCount++; // Increment the correct answer count if the answer is correct
-    }
     showAnswerFeedback(isCorrect);
-    updateScore(); // Update the score display
     setTimeout(() => {
         generateQuestion();
         startCountdown();
@@ -73,6 +70,8 @@ function showAnswerFeedback(isCorrect) {
 
     if (isCorrect) {
         flagGame.classList.add('correct');
+        correctCount++;
+        updateScore();
     } else {
         flagGame.classList.add('wrong');
         selectedOption.classList.add('wrong');
@@ -104,6 +103,10 @@ function startCountdown() {
     }, 1000);
 }
 
+function stopCountdown() {
+    clearInterval(countdown);
+}
+
 function getRandomFlagQuestion() {
     const correctAnswer = getRandomCountry();
     const options = generateOptions(correctAnswer);
@@ -112,10 +115,6 @@ function getRandomFlagQuestion() {
         correctAnswer,
         options,
     };
-}
-
-function getRandomCountry() {
-    return countries[Math.floor(Math.random() * countries.length)];
 }
 
 function generateOptions(correctAnswer) {
@@ -134,31 +133,6 @@ function shuffleArray(array) {
     }
 
     return array;
-}
-
-let countdown = null; // Declare the countdown variable at the top of the script
-
-function startCountdown() {
-    const timerElement = document.getElementById('timer');
-    let timer = 10;
-    timerElement.textContent = timer;
-    countdown = setInterval(() => {
-        timer--;
-        timerElement.textContent = timer;
-
-        if (timer <= 0) {
-            stopCountdown();
-            showAnswerFeedback(false);
-            setTimeout(() => {
-                generateQuestion();
-                startCountdown();
-            }, 2000);
-        }
-    }, 1000);
-}
-
-function stopCountdown() {
-    clearInterval(countdown);
 }
 
 function endGame() {
