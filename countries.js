@@ -117,7 +117,7 @@
     },
     {
         "name": "Cambodia",
-        "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/1280px-Flag
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/1280px-Flag_of_Cambodia.svg.png"
     },
     {
         "name": "Cameroon",
@@ -665,7 +665,7 @@
     },
     {
         "name": "Suriname",
-        "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/1280px-
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/1280px-Flag_of_Suriname.svg.png"
     },
     {
         "name": "Swaziland",
@@ -725,7 +725,7 @@
     },
     {
         "name": "Tuvalu",
-        "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/1280px-Flag_of_Tuvalu.svg
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/1280px-Flag_of_Tuvalu.svg.png"
     },
     {
         "name": "Uganda",
@@ -783,4 +783,4 @@
         "name": "Zimbabwe",
         "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/1280px-Flag_of_Zimbabwe.svg.png"
     }
-];
+]
