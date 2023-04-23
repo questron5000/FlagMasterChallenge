@@ -47,7 +47,6 @@ function selectOption(option, optionElement) {
     selectedOption = optionElement;
     optionElement.classList.add('selected');
 }
-
 function lockInAnswer() {
     if (!selectedOption) return;
 
@@ -85,13 +84,13 @@ function showAnswerFeedback(isCorrect) {
     }, 2000);
 }
 
-function getRandomCountry() {
-    const randomIndex = Math.floor(Math.random() * window.countries.length);
+function getRandomCountry(countries) {
+    const randomIndex = Math.floor(Math.random() * countries.length);
     return countries[randomIndex];
 }
 
 function getRandomFlagQuestion() {
-    const correctAnswer = getRandomCountry();
+    const correctAnswer = getRandomCountry(window.countries);
     const options = generateOptions(correctAnswer);
     return {
         flag: correctAnswer.flag,
@@ -103,7 +102,7 @@ function getRandomFlagQuestion() {
 function generateOptions(correctAnswer) {
     const options = new Set([correctAnswer]);
     while (options.size < 4) {
-        options.add(getRandomCountry());
+        options.add(getRandomCountry(window.countries));
     }
 
     return shuffleArray(Array.from(options));
@@ -114,7 +113,6 @@ function shuffleArray(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-
     return array;
 }
 
@@ -142,10 +140,31 @@ function updateScore() {
     scoreElement.textContent = 'Score: ' + correctCount;
 }
 
+function startCountdown() {
+    timer = 10;
+    timerElement.textContent = timer;
+    countdown = setInterval(() => {
+        timer--;
+        timerElement.textContent = timer;
+
+        if (timer <= 0) {
+            stopCountdown();
+            showAnswerFeedback(false);
+            setTimeout(() => {
+                generateQuestion();
+                startCountdown();
+            }, 2000);
+        }
+    }, 1000);
+}
+
+function stopCountdown() {
+    clearInterval(countdown);
+}
+
 // Add an event listener to the "Lock it in" button
 lockInButton.addEventListener('click', lockInAnswer);
 
-// Start the game when the countries.js script has been loaded
-window.addEventListener('load', () => {
-    startGame();
-});
+// Start the game when the page loads
+startGame();
+
