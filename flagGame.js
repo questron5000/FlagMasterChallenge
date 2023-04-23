@@ -85,6 +85,17 @@ function showAnswerFeedback(isCorrect) {
     }, 2000);
 }
 
+function getRandomCountry(countries) {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    return countries[randomIndex];
+}
+
+function getRandomFlagQuestion() {
+    // ...
+    const randomCountry = getRandomCountry(countries); // assuming countries is an array of country objects
+    // ...
+}
+
 function startCountdown() {
     timer = 10;
     timerElement.textContent = timer;
