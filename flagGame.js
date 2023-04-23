@@ -86,7 +86,7 @@ function showAnswerFeedback(isCorrect) {
 }
 
 function getRandomCountry() {
-    const randomIndex = Math.floor(Math.random() * countries.length);
+    const randomIndex = Math.floor(Math.random() * window.countries.length);
     return countries[randomIndex];
 }
 

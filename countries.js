@@ -1,4 +1,4 @@
-﻿const countries = [
+﻿window.countries = [
     {
         "name": "Afghanistan",
         "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/1280px-Flag_of_Afghanistan.svg.png"
