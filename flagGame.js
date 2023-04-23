@@ -84,10 +84,11 @@ function showAnswerFeedback(isCorrect) {
     }, 2000);
 }
 
-function getRandomCountry(countries) {
-    const randomIndex = Math.floor(Math.random() * countries.length);
-    return countries[randomIndex];
+function getRandomCountry() {
+    const randomIndex = Math.floor(Math.random() * window.countries.length);
+    return window.countries[randomIndex];
 }
+
 
 function getRandomFlagQuestion() {
     const correctAnswer = getRandomCountry(window.countries);
@@ -168,3 +169,12 @@ lockInButton.addEventListener('click', lockInAnswer);
 // Start the game when the page loads
 startGame();
 
+function init() {
+    if (window.countries && window.countries.length > 0) {
+        startGame();
+    } else {
+        setTimeout(init, 100);
+    }
+}
+
+init();
