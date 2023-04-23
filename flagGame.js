@@ -145,5 +145,7 @@ function updateScore() {
 // Add an event listener to the "Lock it in" button
 lockInButton.addEventListener('click', lockInAnswer);
 
-// Start the game when the page loads
-startGame();
+// Start the game when the countries.js script has been loaded
+window.addEventListener('load', () => {
+    startGame();
+});
