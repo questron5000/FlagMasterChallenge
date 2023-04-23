@@ -85,37 +85,9 @@ function showAnswerFeedback(isCorrect) {
     }, 2000);
 }
 
-function getRandomCountry(countries) {
+function getRandomCountry() {
     const randomIndex = Math.floor(Math.random() * countries.length);
     return countries[randomIndex];
-}
-
-function getRandomFlagQuestion() {
-    // ...
-    const randomCountry = getRandomCountry(countries); // assuming countries is an array of country objects
-    // ...
-}
-
-function startCountdown() {
-    timer = 10;
-    timerElement.textContent = timer;
-    countdown = setInterval(() => {
-        timer--;
-        timerElement.textContent = timer;
-
-        if (timer <= 0) {
-            stopCountdown();
-            showAnswerFeedback(false);
-            setTimeout(() => {
-                generateQuestion();
-                startCountdown();
-            }, 2000);
-        }
-    }, 1000);
-}
-
-function stopCountdown() {
-    clearInterval(countdown);
 }
 
 function getRandomFlagQuestion() {
@@ -159,9 +131,15 @@ function endGame() {
     restartButton.addEventListener('click', () => {
         // Reset the question count and start the game again
         questionCount = 0;
+        correctCount = 0;
+        updateScore();
         startGame();
     });
     flagGame.appendChild(restartButton);
+}
+
+function updateScore() {
+    scoreElement.textContent = 'Score: ' + correctCount;
 }
 
 // Add an event listener to the "Lock it in" button
